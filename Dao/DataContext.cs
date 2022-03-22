@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using LinqWctc.Models;
 
 namespace LinqWctc.Dao
@@ -30,9 +31,19 @@ namespace LinqWctc.Dao
             return character;
         }
 
-        public Character SearchAll(string searchString)
+        // Ignore for the time being as a valid implementation for Search across types
+        // You will probably implement in your models that inherit from the abstract types
+        public List<Character> SearchAll(string searchString)
         {
-             
+            List<Character> characterList = new List<Character>();
+
+            var enemy = repository.Enemies.FirstOrDefault(x => x.Name == searchString);
+            characterList.Add(enemy);
+
+            var player = repository.Players.FirstOrDefault(x => x.Name == searchString);
+            characterList.Add(player);
+
+            return characterList;
         }
     }
 }

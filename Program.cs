@@ -12,6 +12,13 @@ namespace LinqWctc
 
             // Ask user for searchString
             var searchedCharacter = context.Search("Yoshi");
+
+            Character player = new Player();
+            Character enemy = new Enemy();
+
+            // example implementation
+            //player.Search();
+            //enemy.Search();
         }
     }
 }
